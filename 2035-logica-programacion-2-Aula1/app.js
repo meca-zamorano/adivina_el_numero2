@@ -5,3 +5,7 @@ let parrafo = document.querySelector('p');
 titulo.innerHTML = 'Juego del número secreto';
 parrafo.innerHTML = 'Indica un número del 1 al 10';
 
+//CREAR FUNCIONES
+function intentoDeUsuario(){
+    
+}
