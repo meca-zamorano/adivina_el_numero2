@@ -13,12 +13,17 @@ function asignarTextoElemento(elemento, texto){
 
 function validarIntento(){
     let numeroIngresado = parseInt(document.getElementById('valorIngresado').value);
+    //console.log(numeroSecreto);
     //console.log(typeof(numeroIngresado));//IDENTIFICA EL TIPO DE DATO
-    console.log(numeroIngresado);
-    console.log (numeroSecreto); //VALIDAMOS QUE EL NUMERO SECRETO FUNCIONE
-    //console.log(typeof(numeroSecreto));
-    console.log(numeroIngresado == numeroSecreto);
-
+    if(numeroSecreto === numeroIngresado){
+        asignarTextoElemento('p','Acertaste!')
+    }else{
+        if (numeroIngresado>numeroSecreto){
+            asignarTextoElemento('p', 'El número secreto es menor');
+        }else{
+            asignarTextoElemento('p','El número secreto es mayor');
+        }
+    }
     
 }
 
