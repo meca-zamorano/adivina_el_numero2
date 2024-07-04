@@ -39,7 +39,7 @@ function generarNumeroSecreto(){
     console.log(listaNumerosAleatorio);
     //SI YA SORTEMAOS TODOS LOS NUMEROS
     if(listaNumerosAleatorio.length == tamanoLista){
-        asignarTextoElemento('p', 'Ya se sortearon todos los números posibles')
+        asignarTextoElemento('p', 'Ya se sortearon todos los números posibles');
 
     }else{
         //SI EL NUMERO ESTÁ EN LA LISTA
