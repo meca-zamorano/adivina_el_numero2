@@ -3,9 +3,9 @@ let parrafo = document.querySelector('p');
 USANDO LA VARIABLE Y CON EL INNERHTML SE LE ASIGNA UN TEXTO O VALOR A LA VARIABLE
 parrafo.innerHTML = 'Indica un número del 1 al 10';*/
 
-let numeroSecreto = generarNumeroSecreto();
-let contadorIntentos = 1;
-console.log(numeroSecreto);
+let numeroSecreto = 0;
+let contadorIntentos = 0;
+
 
 //CREAR FUNCIONES
 function asignarTextoElemento(elemento, texto){
@@ -39,9 +39,27 @@ function generarNumeroSecreto(){
 
 function limpiar(){
     let limpiarInput = document.querySelector('#valorIngresado').value = '';//ME PERMITE TOMAR EL VALOR DEL INPUT
-    //document.getElementById('valorIngresado').value
+}
+
+function condicionesIniciales(){
+    asignarTextoElemento('h1', 'Juego del número secreto');
+    asignarTextoElemento('p', 'Indica un número del 1 al 10');
+    numeroSecreto = generarNumeroSecreto();
+    //console.log(numeroSecreto);
+    contadorIntentos = 1;
+}
+function reiniciarJuego(){
+    //LIMPIAR EL INPUT
+    limpiar();
+    //INDICAR MENSAJE DE INTERVALO DE NUMEROS
+    //GENERAR EL NUMERO ALEATORIO
+    //INICIALIZAR EL NUMERO DE INTENTOS
+    condicionesIniciales();
+    
+    //DESHABILITAR EL BOTON DE NUEVO JUEGO
+    document.querySelector('#reiniciar').setAttribute('disabled ','true');
+
 }
 
 //LLAMAR LAS FUNCIONES
-asignarTextoElemento('h1', 'Juego del número secreto');
-asignarTextoElemento('p', 'Indica un número del 1 al 10');
+condicionesIniciales();
