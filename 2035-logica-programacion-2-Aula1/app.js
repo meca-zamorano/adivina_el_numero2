@@ -5,7 +5,8 @@ parrafo.innerHTML = 'Indica un número del 1 al 10';*/
 
 let numeroSecreto = 0;
 let contadorIntentos = 0;
-
+let listaNumerosAleatorio = [];
+let tamanoLista =10;
 
 //CREAR FUNCIONES
 function asignarTextoElemento(elemento, texto){
@@ -33,8 +34,22 @@ function validarIntento(){
 }
 
 function generarNumeroSecreto(){
-    return Math.floor(Math.random()*10)+1;
-    
+    let numeroGenerado = Math.floor(Math.random()*tamanoLista)+1;
+    console.log(numeroGenerado);
+    console.log(listaNumerosAleatorio);
+    //SI YA SORTEMAOS TODOS LOS NUMEROS
+    if(listaNumerosAleatorio.length == tamanoLista){
+        asignarTextoElemento('p', 'Ya se sortearon todos los números posibles')
+
+    }else{
+        //SI EL NUMERO ESTÁ EN LA LISTA
+        if(listaNumerosAleatorio.includes(numeroGenerado)){ //INCLUDES CHEQUEA SI EN LA LISTA ESTÁ EL VALOR QUE ENTRA POR PARAMETRO, DEVUELVE UN BOOLEANO
+            return generarNumeroSecreto();// SE APLICA RECURSIVIDAD, ES DECIR SE LLAMA LA FUNCION DENTRO DE LA MISMA FUNCION
+        } else {
+            listaNumerosAleatorio.push(numeroGenerado); //PUSH ADICIONA EL NUMERO EN LA LISTA
+            return numeroGenerado;
+        }
+    }
 }
 
 function limpiar(){
@@ -43,7 +58,7 @@ function limpiar(){
 
 function condicionesIniciales(){
     asignarTextoElemento('h1', 'Juego del número secreto');
-    asignarTextoElemento('p', 'Indica un número del 1 al 10');
+    asignarTextoElemento('p', `Indica un número del 1 al ${tamanoLista}`);
     numeroSecreto = generarNumeroSecreto();
     //console.log(numeroSecreto);
     contadorIntentos = 1;
@@ -57,7 +72,7 @@ function reiniciarJuego(){
     condicionesIniciales();
     
     //DESHABILITAR EL BOTON DE NUEVO JUEGO
-    document.querySelector('#reiniciar').setAttribute('disabled ','true');
+    document.querySelector('#reiniciar').setAttribute('disabled','true');
 
 }
 
